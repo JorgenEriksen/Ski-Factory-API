@@ -1,0 +1,16 @@
+actor: ApiTester
+modules:
+    enabled:
+        - Asserts
+        - \Helper\Api
+        - REST:
+            url: http://127.0.0.1/
+            depends: PhpBrowser
+            part: Json
+        - Db:
+            dsn: 'mysql:host=127.0.0.1;dbname=demotest'
+            user: 'root'
+            password: ''
+            dump: 'tests/_data/testdb.sql'
+            populate: true
+            cleanup: true
